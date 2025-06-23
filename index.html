@@ -598,30 +598,9 @@
     </footer>
 
     <script>
-        // Simple counter animation function
-        function animateCounter(element, targetValue, duration = 2000) {
-            const startValue = 0;
-            const startTime = performance.now();
-            
-            const animate = (currentTime) => {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                
-                // Simple easing function
-                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-                const currentValue = Math.round(startValue + (targetValue - startValue) * easeOutCubic);
-                
-                element.textContent = currentValue;
-                
-                if (progress < 1) {
-                    requestAnimationFrame(animate);
-                }
-            };
-            
-            requestAnimationFrame(animate);
-        }
+        
 
-        // Toggle mobile menu
+      
         function toggleMobileMenu() {
             const mobileMenu = document.querySelector('.mobile-menu');
             const line1 = document.getElementById('line1');
