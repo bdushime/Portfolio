@@ -16,14 +16,7 @@
             background-repeat: no-repeat;
         }
         
-        .font-inter {
-            font-family: 'Inter', sans-serif;
-        }
         
-        .custom-scroll {
-            scroll-behavior: smooth;
-        }
-
         .contact-bg {
             background-image: url(images/Benii.png);
             background-size: cover;
@@ -31,7 +24,7 @@
             background-repeat: no-repeat;
         }
 
-        /* Simple hover effects */
+    
         .hover-lift {
             transition: transform 0.3s ease;
         }
@@ -40,7 +33,7 @@
             transform: translateY(-5px);
         }
 
-        /* Mobile menu animation */
+      
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.3s ease-in-out;
@@ -50,17 +43,7 @@
             transform: translateX(0);
         }
 
-        /* Simple fade-in for sections */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+      
     </style>
 </head>
 <body class="bg-black text-white font-inter custom-scroll">
@@ -80,16 +63,16 @@
                 <a href="#contact" class="hover:text-gray-300 transition-colors duration-300">Contact</a>
             </div>
 
-            <!-- Mobile Menu Button -->
+            <!--Mobile Menu Button -->
             <button class="md:hidden z-50 relative" onclick="toggleMobileMenu()">
                 <div class="w-6 h-6 flex flex-col justify-center items-center">
-                    <span class="block w-6 h-0.5 bg-white mb-1.5 transition-all duration-300" id="line1"></span>
-                    <span class="block w-6 h-0.5 bg-white mb-1.5 transition-all duration-300" id="line2"></span>
-                    <span class="block w-6 h-0.5 bg-white transition-all duration-300" id="line3"></span>
+                    <span class="block w-6 h-1 bg-white mb-1.5 transition-all duration-300" id="line1"></span>
+                    <span class="block w-6 h-1 bg-white mb-1.5 transition-all duration-300" id="line2"></span>
+                    <span class="block w-6 h-1 bg-white transition-all duration-300" id="line3"></span>
                 </div>
             </button>
 
-            <!-- Mobile Menu -->
+            <!--Mobile Menu -->
             <div class="mobile-menu fixed top-0 right-0 w-full h-screen bg-black bg-opacity-95 backdrop-blur-lg z-40 flex flex-col justify-center items-center space-y-8 md:hidden">
                 <a href="#home" class="text-2xl hover:text-gray-300 transition-colors duration-300" onclick="toggleMobileMenu()">Home</a>
                 <a href="#about" class="text-2xl hover:text-gray-300 transition-colors duration-300" onclick="toggleMobileMenu()">About</a>
@@ -144,7 +127,7 @@
 
                     <button
                         onclick="toggleText()"
-                        class="mt-2 text-gray-200 hover:underline text-sm transition-all duration-300 hover:text-white"
+                        class="mt-2 text-gray-400 font-bold hover:underline text-sm transition-all duration-300 hover:text-white"
                         id="toggleButton"
                     >
                         Read more...
@@ -153,30 +136,35 @@
             </div>
         </div>
 
-        <!--Stats section with counter animation-->
+     
         <div class="flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-20 mt-20 px-6">
             
-            <div class="text-center" id="projects-stat">
+            <div class="text-center" >
                 <h2 class="text-4xl lg:text-5xl font-bold text-gray-900">
-                    <span class="counter">0</span>+
+                    <span class="counter">4</span>+
                 </h2>
-                <p class="text-gray-400 mt-2 uppercase tracking-wide text-sm">Projects Completed</p>
+                <p class="text-gray-500 mt-2 font-bold uppercase tracking-wide text-sm">Projects Completed</p>
             </div>
 
-            <!-- Circle divider -->
-            <div class="w-4 h-4 rounded-full bg-black"></div>
 
-            <div class="text-center" id="completion-stat">
+            <div class="text-center" >
                 <h2 class="text-4xl lg:text-5xl font-bold text-gray-900">
-                    <span class="counter">0</span>%
+                    <span class="counter">7</span>+
                 </h2>
-                <p class="text-gray-400 mt-2 uppercase tracking-wide text-sm">Completion on Time</p>
+                <p class="text-gray-500 mt-2 font-bold uppercase tracking-wide text-sm">Technologies</p>
+            </div>
+
+            <div class="text-center" >
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900">
+                    <span class="counter">7</span>+
+                </h2>
+                <p class="text-gray-500 mt-2 font-bold uppercase tracking-wide text-sm">Tools</p>
             </div>
         </div>
     </section>
 
    
-   <!--Skills Section with percentage counters-->
+   <!--Skills Section -->
     <section id="skills" class="mt-32 px-6 py-20">
         <div class="flex flex-row items-center space-x-2 justify-center mb-16">
             <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
@@ -184,23 +172,9 @@
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-8 max-w-6xl mx-auto">
-            
-            <!-- WordPress -->
-            <div class="skill-card flex flex-col items-center p-4 lg:p-6 bg-gray-400 rounded-full aspect-square justify-center transition-all duration-300 ease-in-out hover-lift" data-percentage="78">
-                <div class="w-12 h-12 lg:w-16 lg:h-16 mb-4 flex items-center justify-center">
-                    <svg width="48" height="48" viewBox="0 0 64 64" fill="none" class="w-full h-full">
-                        <circle cx="32" cy="32" r="30" fill="#21759B"/>
-                        <path d="M32 6C17.6 6 6 17.6 6 32s11.6 26 26 26 26-11.6 26-26S46.4 6 32 6zm0 4c12.1 0 22 9.9 22 22s-9.9 22-22 22S10 44.1 10 32 19.9 10 32 10z" fill="white"/>
-                        <path d="M32 16c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zm0 2c7.7 0 14 6.3 14 14s-6.3 14-14 14-14-6.3-14-14 6.3-14 14-14z" fill="white"/>
-                    </svg>
-                </div>
-                <div class="text-2xl lg:text-3xl font-bold text-gray-900 mb-1">
-                    <span class="counter">0</span>%
-                </div>
-                <div class="text-xs lg:text-sm text-gray-600 uppercase tracking-wide text-center">WORDPRESS</div>
-            </div>
+          
 
-            <!-- HTML5 -->
+            <!--HTML -->
             <div class="skill-card flex flex-col items-center p-4 lg:p-6 bg-gray-400 rounded-full aspect-square justify-center transition-all duration-300 ease-in-out hover-lift" data-percentage="95">
                 <div class="w-12 h-12 lg:w-16 lg:h-16 mb-4 flex items-center justify-center">
                     <svg width="48" height="48" viewBox="0 0 64 64" fill="none" class="w-full h-full">
@@ -211,12 +185,12 @@
                     </svg>
                 </div>
                 <div class="text-2xl lg:text-3xl font-bold text-gray-900 mb-1">
-                    <span class="counter">0</span>%
+                    80%
                 </div>
-                <div class="text-xs lg:text-sm text-gray-600 uppercase tracking-wide text-center">HTML5</div>
+                <div class="text-xs lg:text-sm text-gray-600 uppercase  text-center">HTML</div>
             </div>
 
-            <!-- CSS -->
+            <!-- Css -->
             <div class="skill-card flex flex-col items-center p-4 lg:p-6 bg-gray-400 rounded-full aspect-square justify-center transition-all duration-300 ease-in-out hover-lift" data-percentage="89">
                 <div class="w-12 h-12 lg:w-16 lg:h-16 mb-4 flex items-center justify-center">
                     <svg width="48" height="48" viewBox="0 0 64 64" fill="none" class="w-full h-full">
@@ -227,9 +201,9 @@
                     </svg>
                 </div>
                 <div class="text-2xl lg:text-3xl font-bold text-gray-900 mb-1">
-                    <span class="counter">0</span>%
+                   80%
                 </div>
-                <div class="text-xs lg:text-sm text-gray-600 uppercase tracking-wide text-center">CSS STYLE</div>
+                <div class="text-xs lg:text-sm text-gray-600 uppercase  text-center">Tailwind</div>
             </div>
 
             <!-- Figma -->
@@ -244,9 +218,9 @@
                     </svg>
                 </div>
                 <div class="text-2xl lg:text-3xl font-bold text-gray-900 mb-1">
-                    <span class="counter">0</span>%
+                    65%
                 </div>
-                <div class="text-xs lg:text-sm text-gray-600 uppercase tracking-wide text-center">FIGMA</div>
+                <div class="text-xs lg:text-sm text-gray-600 uppercase  text-center">FIGMA</div>
             </div>
 
             <!-- Java -->
@@ -263,9 +237,9 @@
                     </svg>
                 </div>
                 <div class="text-2xl lg:text-3xl font-bold text-gray-900 mb-1">
-                    <span class="counter">0</span>%
+                    70%
                 </div>
-                <div class="text-xs lg:text-sm text-gray-600 uppercase tracking-wide text-center">Java</div>
+                <div class="text-xs lg:text-sm text-gray-600 uppercase  text-center">Java</div>
             </div>
 
             <!-- Javascript -->
@@ -278,9 +252,9 @@
                     </svg>
                 </div>
                 <div class="text-2xl lg:text-3xl font-bold text-gray-900 mb-1">
-                    <span class="counter">0</span>%
+                 85%
                 </div>
-                <div class="text-xs lg:text-sm text-gray-600 uppercase tracking-wide text-center">Javascript</div>
+                <div class="text-xs lg:text-sm text-gray-600 uppercase  text-center">Javascript</div>
             </div>
         </div>
     </section>
@@ -621,7 +595,7 @@
             }
         }
 
-        // Toggle read more text
+       
         function toggleText() {
             const text = document.getElementById('introText');
             const button = document.getElementById('toggleButton');
@@ -635,75 +609,6 @@
                 button.innerText = 'Read more...';
             }
         }
-
-        // Simple intersection observer for animations
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            // Set up fade-in animations
-            const animatedElements = document.querySelectorAll('.fade-in');
-            animatedElements.forEach(el => observer.observe(el));
-            
-            // Stats counter animation
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const counter = entry.target.querySelector('.counter');
-                        if (entry.target.id === 'projects-stat') {
-                            animateCounter(counter, 3); // 3 projects
-                        } else if (entry.target.id === 'completion-stat') {
-                            animateCounter(counter, 88); // 88% completion
-                        }
-                        statsObserver.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            // Observe stats elements
-            const projectsStat = document.getElementById('projects-stat');
-            const completionStat = document.getElementById('completion-stat');
-            if (projectsStat) statsObserver.observe(projectsStat);
-            if (completionStat) statsObserver.observe(completionStat);
-
-            // Skills counter animation
-            const skillsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const skillCards = entry.target.querySelectorAll('.skill-card');
-                        skillCards.forEach((card, index) => {
-                            const counter = card.querySelector('.counter');
-                            const percentage = parseInt(card.dataset.percentage);
-                            
-                            // Add delay for staggered animation
-                            setTimeout(() => {
-                                animateCounter(counter, percentage, 2000);
-                            }, index * 200);
-                        });
-                        skillsObserver.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            // Observe skills section
-            const skillsSection = document.getElementById('skills');
-            if (skillsSection) {
-                skillsObserver.observe(skillsSection);
-            }
-
-       
-        });
 
     </script>
     
