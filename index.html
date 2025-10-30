@@ -1,26 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dushime Beni Egide - Creative Developer Portfolio</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
-    <!-- GSAP for Advanced Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
-    <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
     <style>
@@ -45,7 +40,6 @@
             overflow-x: hidden;
         }
 
-        /* Three.js Canvas */
         #three-canvas {
             position: fixed;
             top: 0;
@@ -56,7 +50,6 @@
             pointer-events: none;
         }
 
-        /* Particles Background */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -67,13 +60,11 @@
             pointer-events: none;
         }
 
-        /* Content Layer */
         .content-wrapper {
             position: relative;
             z-index: 100;
         }
 
-        /* Cursor Effects */
         .cursor {
             width: 20px;
             height: 20px;
@@ -100,7 +91,6 @@
             transform-origin: center;
         }
 
-        /* Gradient Text */
         .gradient-text {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
             -webkit-background-clip: text;
@@ -132,7 +122,6 @@
             50% { background-position: 100% 50%; }
         }
 
-        /* Glow Pulse */
         @keyframes glow-pulse-enhanced {
             0%, 100% { 
                 box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary), 0 0 60px var(--primary);
@@ -144,7 +133,6 @@
             }
         }
 
-        /* Glassmorphism */
         .glass {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
@@ -158,7 +146,6 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
-        /* Magnetic Button Effect */
         .magnetic-btn {
             position: relative;
             display: inline-block;
@@ -213,7 +200,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* 3D Card Effect */
         .card-3d {
             transform-style: preserve-3d;
             transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -262,7 +248,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Floating Animation */
         @keyframes float {
             0%, 100% { 
                 transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
@@ -282,7 +267,6 @@
             animation: float 8s ease-in-out infinite;
         }
 
-        /* Parallax Effect */
         .parallax-slow {
             transform: translateZ(0);
             will-change: transform;
@@ -293,13 +277,11 @@
             will-change: transform;
         }
 
-        /* Stagger Animation */
         .stagger-item {
             opacity: 0;
             transform: translateY(30px);
         }
 
-        /* Skill Bar Enhanced */
         .skill-progress {
             transform-origin: left;
             transform: scaleX(0);
@@ -310,7 +292,6 @@
             transform: scaleX(1);
         }
 
-        /* Glow Effect */
         .glow {
             box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary), 0 0 60px var(--primary);
             animation: glow-pulse 2s ease-in-out infinite;
@@ -321,7 +302,6 @@
             50% { opacity: 0.7; }
         }
 
-        /* Skill Bar Animation */
         .skill-bar {
             position: relative;
             height: 8px;
@@ -354,7 +334,6 @@
             100% { left: 100%; }
         }
 
-        /* Scroll Indicator */
         .scroll-indicator {
             position: fixed;
             top: 0;
@@ -372,7 +351,6 @@
             transition: width 0.1s;
         }
 
-        /* Hero Section */
         .hero-section {
             min-height: 100vh;
             display: flex;
@@ -387,7 +365,6 @@
             z-index: 10;
         }
 
-        /* Animated Background Shapes */
         .bg-shape {
             position: absolute;
             opacity: 0.1;
@@ -425,7 +402,6 @@
             }
         }
 
-        /* Typewriter Effect */
         .typewriter {
             overflow: hidden;
             border-right: 3px solid var(--primary);
@@ -443,7 +419,6 @@
             50% { border-color: var(--primary); }
         }
 
-        /* Timeline */
         .timeline-item {
             position: relative;
             padding-left: 40px;
@@ -471,7 +446,6 @@
             background: linear-gradient(180deg, var(--primary), transparent);
         }
 
-        /* Mobile Menu */
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -481,20 +455,16 @@
             transform: translateX(0);
         }
 
-        /* Reveal Animation */
         .reveal {
             opacity: 1;
             transform: translateY(0) scale(1);
-            /* GSAP will handle animations, but content is visible by default */
         }
 
-        /* Only hide if JavaScript doesn't load - will be overridden by GSAP */
         .no-js .reveal {
             opacity: 1;
             transform: none;
         }
 
-        /* Text Reveal */
         .text-reveal {
             overflow: hidden;
             position: relative;
@@ -516,13 +486,11 @@
             transform: translateX(100%);
         }
 
-        /* Hover Tilt Effect */
         .tilt-card {
             transform-style: preserve-3d;
             transition: transform 0.3s ease;
         }
 
-        /* Project Card Hover */
         .project-card {
             position: relative;
             overflow: hidden;
@@ -546,7 +514,6 @@
             height: 500px;
         }
 
-        /* Testimonial Card */
         .testimonial-card {
             position: relative;
             padding: 2rem;
@@ -563,7 +530,6 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Loading Screen */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -583,7 +549,6 @@
             visibility: hidden;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .bg-shape-1, .bg-shape-2 {
                 width: 200px;
@@ -593,7 +558,7 @@
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
+    
     <div class="loading-screen" id="loadingScreen">
         <div class="text-center">
             <div class="w-16 h-16 border-4 border-t-transparent border-purple-500 rounded-full animate-spin mx-auto mb-4"></div>
@@ -601,33 +566,27 @@
         </div>
     </div>
 
-    <!-- Custom Cursor -->
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursorFollower"></div>
 
-    <!-- Scroll Progress Indicator -->
     <div class="scroll-indicator">
         <div class="scroll-progress" id="scrollProgress"></div>
     </div>
 
-    <!-- Three.js Canvas -->
     <canvas id="three-canvas"></canvas>
 
-    <!-- Particles Background -->
     <div id="particles-js"></div>
 
-    <!-- Content Wrapper -->
     <div class="content-wrapper">
-        <!-- Navigation -->
+        
         <nav class="fixed top-0 left-0 right-0 glass-strong" style="z-index: 1000;">
             <div class="max-w-7xl mx-auto px-6 py-4">
                 <div class="flex items-center justify-between">
-                    <!-- Logo -->
+                    
                     <a href="#home" class="text-2xl font-bold gradient-text">
                         Dushime.
                     </a>
 
-                    <!-- Desktop Menu -->
                     <ul class="hidden md:flex space-x-8">
                         <li><a href="#home" class="nav-link text-gray-300 hover:text-white transition-colors">Home</a></li>
                         <li><a href="#about" class="nav-link text-gray-300 hover:text-white transition-colors">About</a></li>
@@ -638,12 +597,10 @@
                         <li><a href="#contact" class="nav-link text-gray-300 hover:text-white transition-colors">Contact</a></li>
                     </ul>
 
-                    <!-- CTA Button -->
                     <a href="#contact" class="hidden md:block magnetic-btn px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all">
                         Hire Me
                     </a>
 
-                    <!-- Mobile Menu Button -->
                     <button onclick="toggleMobileMenu()" class="md:hidden text-white">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path id="line1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" style="transition: all 0.3s;"/>
@@ -655,7 +612,6 @@
             </div>
         </nav>
 
-        <!-- Mobile Menu -->
         <div class="mobile-menu fixed top-0 right-0 h-screen w-64 glass-strong md:hidden" style="z-index: 999;">
             <ul class="flex flex-col space-y-6 p-8 mt-20">
                 <li><a href="#home" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white transition-colors text-lg">Home</a></li>
@@ -668,9 +624,8 @@
             </ul>
         </div>
 
-        <!-- Hero Section -->
         <section id="home" class="hero-section">
-            <!-- Animated Background Shapes -->
+            
             <div class="bg-shape bg-shape-1"></div>
             <div class="bg-shape bg-shape-2"></div>
 
@@ -702,7 +657,6 @@
                     </div>
                 </div>
 
-                <!-- Scroll Indicator -->
                 <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
                     <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
@@ -711,7 +665,6 @@
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="py-20 px-6">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-5xl font-bold text-center mb-16 reveal">
@@ -719,7 +672,7 @@
                 </h2>
 
                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <!-- Profile Image with 3D Effect -->
+                    
                     <div class="reveal">
                         <div class="card-3d glass p-8 rounded-3xl">
                             <div class="aspect-square rounded-2xl overflow-hidden">
@@ -730,7 +683,6 @@
                         </div>
                     </div>
 
-                    <!-- About Content -->
                     <div class="reveal space-y-6">
                         <h3 class="text-3xl font-bold text-white">Full Stack Developer & UI/UX Enthusiast</h3>
                         <p class="text-gray-400 text-lg leading-relaxed">
@@ -744,7 +696,6 @@
                             and delivering excellence in every project.
                         </p>
 
-                        <!-- Stats -->
                         <div class="grid grid-cols-3 gap-6 pt-6">
                             <div class="text-center">
                                 <div class="text-4xl font-bold gradient-text counter" data-target="5">0</div>
@@ -764,7 +715,6 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section id="skills" class="py-20 px-6 bg-gradient-to-b from-transparent to-purple-900/10">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-5xl font-bold text-center mb-16 reveal">
@@ -772,7 +722,7 @@
                 </h2>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Frontend Skills -->
+                    
                     <div class="reveal card-3d glass p-8 rounded-2xl">
                         <div class="flex items-center gap-4 mb-6">
                             <div class="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
@@ -822,7 +772,6 @@
                         </div>
                     </div>
 
-                    <!-- Backend Skills -->
                     <div class="reveal card-3d glass p-8 rounded-2xl">
                         <div class="flex items-center gap-4 mb-6">
                             <div class="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
@@ -872,7 +821,6 @@
                         </div>
                     </div>
 
-                    <!-- Database Skills -->
                     <div class="reveal card-3d glass p-8 rounded-2xl">
                         <div class="flex items-center gap-4 mb-6">
                             <div class="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
@@ -922,7 +870,6 @@
                         </div>
                     </div>
 
-                    <!-- Mobile Development -->
                     <div class="reveal card-3d glass p-8 rounded-2xl">
                         <div class="flex items-center gap-4 mb-6">
                             <div class="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
@@ -972,7 +919,6 @@
                         </div>
                     </div>
 
-                    <!-- Tools & DevOps -->
                     <div class="reveal card-3d glass p-8 rounded-2xl">
                         <div class="flex items-center gap-4 mb-6">
                             <div class="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
@@ -1023,7 +969,6 @@
                         </div>
                     </div>
 
-                    <!-- UI/UX Design -->
                     <div class="reveal card-3d glass p-8 rounded-2xl">
                         <div class="flex items-center gap-4 mb-6">
                             <div class="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
@@ -1076,7 +1021,6 @@
             </div>
         </section>
 
-        <!-- Experience Timeline Section -->
         <section id="experience" class="py-20 px-6">
             <div class="max-w-5xl mx-auto">
                 <h2 class="text-5xl font-bold text-center mb-16 reveal">
@@ -1084,7 +1028,7 @@
                 </h2>
 
                 <div class="space-y-12">
-                    <!-- Timeline Item 1 -->
+                    
                     <div class="reveal timeline-item glass p-8 rounded-2xl">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
                             <div>
@@ -1099,7 +1043,6 @@
                         </p>
                     </div>
 
-                    <!-- Timeline Item 2 -->
                     <div class="reveal timeline-item glass p-8 rounded-2xl">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
                             <div>
@@ -1114,7 +1057,6 @@
                         </p>
                     </div>
 
-                    <!-- Timeline Item 3 -->
                     <div class="reveal timeline-item glass p-8 rounded-2xl">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
                             <div>
@@ -1132,7 +1074,6 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="py-20 px-6 bg-gradient-to-b from-purple-900/10 to-transparent">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-5xl font-bold text-center mb-16 reveal">
@@ -1140,7 +1081,7 @@
                 </h2>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1 -->
+                    
                     <div class="reveal project-card glass p-6 rounded-2xl card-3d">
                         <div class="aspect-video bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl mb-6 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop" 
@@ -1172,7 +1113,6 @@
                         </div>
                     </div>
 
-                    <!-- Project 2 -->
                     <div class="reveal project-card glass p-6 rounded-2xl card-3d">
                         <div class="aspect-video bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl mb-6 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=500&h=300&fit=crop" 
@@ -1204,7 +1144,6 @@
                         </div>
                     </div>
 
-                    <!-- Project 3 -->
                     <div class="reveal project-card glass p-6 rounded-2xl card-3d">
                         <div class="aspect-video bg-gradient-to-br from-green-600 to-teal-600 rounded-xl mb-6 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=300&fit=crop" 
@@ -1236,7 +1175,6 @@
                         </div>
                     </div>
 
-                    <!-- Project 4 -->
                     <div class="reveal project-card glass p-6 rounded-2xl card-3d">
                         <div class="aspect-video bg-gradient-to-br from-orange-600 to-red-600 rounded-xl mb-6 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=500&h=300&fit=crop" 
@@ -1268,7 +1206,6 @@
                         </div>
                     </div>
 
-                    <!-- Project 5 -->
                     <div class="reveal project-card glass p-6 rounded-2xl card-3d">
                         <div class="aspect-video bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl mb-6 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=300&fit=crop" 
@@ -1300,7 +1237,6 @@
                         </div>
                     </div>
 
-                    <!-- Project 6 -->
                     <div class="reveal project-card glass p-6 rounded-2xl card-3d">
                         <div class="aspect-video bg-gradient-to-br from-pink-600 to-rose-600 rounded-xl mb-6 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop" 
@@ -1335,7 +1271,6 @@
             </div>
         </section>
 
-        <!-- Testimonials Section -->
         <section id="testimonials" class="py-20 px-6">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-5xl font-bold text-center mb-16 reveal">
@@ -1343,7 +1278,7 @@
                 </h2>
 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Testimonial 1 -->
+                    
                     <div class="reveal testimonial-card glass rounded-2xl card-3d">
                         <div class="flex items-center gap-4 mb-6">
                             <div class="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-2xl font-bold">
@@ -1377,7 +1312,6 @@
                         </div>
                     </div>
 
-                    <!-- Testimonial 2 -->
                     <div class="reveal testimonial-card glass rounded-2xl card-3d">
                         <div class="flex items-center gap-4 mb-6">
                             <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center text-2xl font-bold">
@@ -1411,7 +1345,6 @@
                         </div>
                     </div>
 
-                    <!-- Testimonial 3 -->
                     <div class="reveal testimonial-card glass rounded-2xl card-3d">
                         <div class="flex items-center gap-4 mb-6">
                             <div class="w-16 h-16 bg-gradient-to-r from-green-600 to-teal-600 rounded-full flex items-center justify-center text-2xl font-bold">
@@ -1448,7 +1381,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="py-20 px-6 bg-gradient-to-t from-purple-900/10 to-transparent">
             <div class="max-w-5xl mx-auto">
                 <h2 class="text-5xl font-bold text-center mb-16 reveal">
@@ -1456,7 +1388,7 @@
                 </h2>
 
                 <div class="grid md:grid-cols-2 gap-12">
-                    <!-- Contact Info -->
+                    
                     <div class="reveal space-y-8">
                         <div>
                             <h3 class="text-3xl font-bold text-white mb-6">Get In Touch</h3>
@@ -1509,7 +1441,6 @@
                             </div>
                         </div>
 
-                        <!-- Social Links -->
                         <div class="flex gap-4 pt-6">
                             <a href="#" class="w-12 h-12 glass rounded-lg flex items-center justify-center hover:glass-strong transition-all hover:scale-110">
                                 <svg class="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
@@ -1529,7 +1460,6 @@
                         </div>
                     </div>
 
-                    <!-- Contact Form -->
                     <div class="reveal">
                         <form onsubmit="handleSubmit(event)" class="space-y-6">
                             <div>
@@ -1560,7 +1490,6 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="py-12 px-6 border-t border-gray-800">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center">
@@ -1576,18 +1505,14 @@
     </div>
 
     <script>
-        // ===== Enhanced GSAP Setup =====
-        // Register ScrollTrigger if GSAP is loaded
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             gsap.registerPlugin(ScrollTrigger);
         }
 
-        // ===== Enhanced Loading Screen =====
         window.addEventListener('load', () => {
             const loadingScreen = document.getElementById('loadingScreen');
             const loadingText = loadingScreen.querySelector('p');
             
-            // Animate loading text
             gsap.to(loadingText, {
                 opacity: 0,
                 y: -20,
@@ -1595,14 +1520,12 @@
                 delay: 0.5
             });
             
-            // Fade out loading screen
             gsap.to(loadingScreen, {
                 opacity: 0,
                 duration: 0.8,
                 delay: 1,
                 onComplete: () => {
                     loadingScreen.classList.add('hidden');
-                    // Trigger hero animations after load
                     gsap.from('.hero-section', {
                         opacity: 0,
                         duration: 1,
@@ -1612,9 +1535,6 @@
             });
         });
 
-        // Custom cursor is now handled in Enhanced Cursor Effect below
-
-        // ===== Three.js 3D Background =====
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ 
@@ -1627,7 +1547,6 @@
         renderer.setPixelRatio(window.devicePixelRatio);
         camera.position.z = 5;
 
-        // Create particles
         const particlesGeometry = new THREE.BufferGeometry();
         const particlesCount = 1000;
         const posArray = new Float32Array(particlesCount * 3);
@@ -1648,7 +1567,6 @@
         const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
         scene.add(particlesMesh);
 
-        // Create geometric shapes
         const torusGeometry = new THREE.TorusGeometry(1, 0.4, 16, 100);
         const torusMaterial = new THREE.MeshBasicMaterial({ 
             color: 0x764ba2,
@@ -1659,7 +1577,6 @@
         const torus = new THREE.Mesh(torusGeometry, torusMaterial);
         scene.add(torus);
 
-        // Enhanced mouse interaction for 3D scene
         let mouseX = 0;
         let mouseY = 0;
         let targetRotationX = 0;
@@ -1672,19 +1589,15 @@
             targetRotationY = mouseX * 0.5;
         });
 
-        // Enhanced Animation with smooth transitions
         function animate() {
             requestAnimationFrame(animate);
             
-            // Smooth interpolation for mouse effects
             torus.rotation.x += (targetRotationX - torus.rotation.x) * 0.02;
             torus.rotation.y += (targetRotationY - torus.rotation.y) * 0.02;
             
-            // Continuous rotation
             particlesMesh.rotation.y += 0.002;
             torus.rotation.z += 0.001;
             
-            // Parallax effect with scroll
             const scrollY = window.scrollY;
             torus.position.z = 5 + scrollY * 0.01;
             
@@ -1692,7 +1605,6 @@
         }
         animate();
 
-        // Add more geometric shapes
         const sphereGeometry = new THREE.SphereGeometry(1.5, 32, 32);
         const sphereMaterial = new THREE.MeshBasicMaterial({ 
             color: 0xf093fb,
@@ -1715,7 +1627,6 @@
         box.position.set(3, -2, 4);
         scene.add(box);
 
-        // Animate new shapes
         function animateShapes() {
             requestAnimationFrame(animateShapes);
             sphere.rotation.x += 0.003;
@@ -1726,14 +1637,12 @@
         }
         animateShapes();
 
-        // Resize handler
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // ===== Enhanced Particles.js =====
         particlesJS('particles-js', {
             particles: {
                 number: { 
@@ -1814,11 +1723,8 @@
             retina_detect: true
         });
 
-        // ===== Enhanced GSAP Scroll Animations =====
-        // Wait for page to load before initializing animations
         window.addEventListener('load', function() {
             if (typeof gsap !== 'undefined') {
-                // Hero section entrance animation - set initial state then animate
                 gsap.set('.hero-section .reveal', { y: 100, opacity: 0 });
                 gsap.to('.hero-section .reveal', {
                     y: 0,
@@ -1840,16 +1746,12 @@
             }
         });
 
-        // Reveal animations with enhanced effects - wait for DOM to be ready
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
                 gsap.utils.toArray('.reveal').forEach((elem, index) => {
-                    // Skip hero section reveals as they're animated separately
                     if (!elem.closest('.hero-section')) {
-                        // Set initial state (hidden)
                         gsap.set(elem, { y: 80, opacity: 0, scale: 0.9 });
                         
-                        // Animate in on scroll
                         gsap.to(elem, {
                             scrollTrigger: {
                                 trigger: elem,
@@ -1870,7 +1772,6 @@
             }
         });
 
-        // Stagger animations for cards
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
                 gsap.utils.toArray('.card-3d').forEach((card, index) => {
@@ -1894,7 +1795,6 @@
             }
         });
 
-        // Project cards stagger
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
                 const projectCards = gsap.utils.toArray('.project-card');
@@ -1920,7 +1820,6 @@
             }
         });
 
-        // Skills section stagger
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
                 const skillCards = gsap.utils.toArray('#skills .card-3d');
@@ -1945,7 +1844,6 @@
             }
         });
 
-        // Testimonials stagger
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             const testimonials = gsap.utils.toArray('.testimonial-card');
             gsap.set(testimonials, { scale: 0.8, opacity: 0, rotationX: 20 });
@@ -1965,7 +1863,6 @@
             });
         }
 
-        // Timeline items animation
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             const timelineItems = gsap.utils.toArray('.timeline-item');
             timelineItems.forEach((item, index) => {
@@ -1987,7 +1884,6 @@
             });
         }
 
-        // Parallax effects
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             gsap.utils.toArray('.parallax-slow').forEach(elem => {
                 gsap.to(elem, {
@@ -2015,7 +1911,6 @@
                 });
             });
 
-            // Background shapes parallax
             gsap.to('.bg-shape-1', {
                 scrollTrigger: {
                     trigger: '#home',
@@ -2041,7 +1936,6 @@
             });
         }
 
-        // Section headers animation
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             gsap.utils.toArray('h2.gradient-text').forEach(header => {
                 gsap.set(header, { scale: 0.5, opacity: 0, rotation: -180 });
@@ -2061,7 +1955,6 @@
             });
         }
 
-        // Counter numbers reveal
         const counters = document.querySelectorAll('.counter');
         counters.forEach(counter => {
             const target = parseInt(counter.getAttribute('data-target'));
@@ -2087,7 +1980,6 @@
             });
         });
 
-        // Skill bars animation
         const skillBars = document.querySelectorAll('.skill-progress');
         skillBars.forEach(bar => {
             const width = bar.style.width;
@@ -2108,7 +2000,6 @@
             );
         });
 
-        // ===== Scroll Progress =====
         window.addEventListener('scroll', () => {
             const scrollProgress = document.getElementById('scrollProgress');
             const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -2116,7 +2007,6 @@
             scrollProgress.style.width = scrolled + '%';
         });
 
-        // ===== Typewriter Effect =====
         const texts = [
             'Full Stack Developer',
             'UI/UX Designer',
@@ -2155,7 +2045,6 @@
 
         typeWriter();
 
-        // ===== Enhanced Cursor Effect =====
         let cursorX = 0;
         let cursorY = 0;
         let followerX = 0;
@@ -2169,12 +2058,10 @@
         });
 
         function animateCursor() {
-            // Smooth cursor movement using lerp
             const cursor = document.getElementById('cursor');
             const follower = document.getElementById('cursorFollower');
             
             if (cursor && follower) {
-                // Lerp for smooth following
                 currentCursorX += (cursorX - currentCursorX - 10) * 0.15;
                 currentCursorY += (cursorY - currentCursorY - 10) * 0.15;
                 
@@ -2189,7 +2076,6 @@
             requestAnimationFrame(animateCursor);
         }
         
-        // Initialize cursor position
         document.addEventListener('DOMContentLoaded', () => {
             currentCursorX = window.innerWidth / 2;
             currentCursorY = window.innerHeight / 2;
@@ -2198,7 +2084,6 @@
             animateCursor();
         });
 
-        // Cursor interaction with interactive elements
         const interactiveElements = document.querySelectorAll('a, button, .card-3d, .magnetic-btn');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
@@ -2211,7 +2096,6 @@
             });
         });
 
-        // ===== Smooth Scroll =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -2221,7 +2105,6 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    // Close mobile menu if open
                     const mobileMenu = document.querySelector('.mobile-menu');
                     if (mobileMenu.classList.contains('active')) {
                         toggleMobileMenu();
@@ -2230,7 +2113,6 @@
             });
         });
 
-        // ===== Mobile Menu Toggle =====
         function toggleMobileMenu() {
             const mobileMenu = document.querySelector('.mobile-menu');
             const line1 = document.getElementById('line1');
@@ -2250,14 +2132,12 @@
             }
         }
 
-        // ===== Form Submission =====
         function handleSubmit(event) {
             event.preventDefault();
             alert('Thank you for your message! I will get back to you soon.');
             event.target.reset();
         }
 
-        // ===== Enhanced Magnetic Button Effect =====
         document.querySelectorAll('.magnetic-btn').forEach(btn => {
             btn.addEventListener('mousemove', (e) => {
                 const rect = btn.getBoundingClientRect();
@@ -2299,7 +2179,6 @@
             });
         });
 
-        // ===== Enhanced 3D Card Tilt Effect =====
         document.querySelectorAll('.card-3d').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
@@ -2331,7 +2210,6 @@
             });
         });
 
-        // ===== Navigation bar scroll effect =====
         const nav = document.querySelector('nav');
         ScrollTrigger.create({
             start: 'top -100',
